@@ -29,6 +29,14 @@ $dbh = new PDO('mysql:host=localhost;dbname=phalcon-td0', 'root','');
     <form method="POST" action="./add">
         <input type="submit" name="ok" value="Ajouter un rôle.." >
     </form>
+    <div class="form-group has-feedback">
+        <label for="search" class="sr-only">Search</label>
+        <form method="POST" action="">
+
+        <input type="text" class="form-control" name="search" id="search" placeholder="search">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </form>
+    </div>
     </br></br></br></br>
     <table class="table  table-bordered">
         <tr>
