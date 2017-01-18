@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 18 Janvier 2017 à 00:27
+-- Généré le :  Mer 18 Janvier 2017 à 12:11
 -- Version du serveur :  10.1.16-MariaDB
 -- Version de PHP :  7.0.9
 
@@ -41,6 +41,31 @@ INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'admin'),
 (2, 'user'),
 (3, 'superadmin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `url`
+--
+
+CREATE TABLE `url` (
+  `id` int(11) NOT NULL,
+  `icon` varchar(30) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `controller` varchar(45) DEFAULT NULL,
+  `action` varchar(45) DEFAULT NULL,
+  `roles` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `url`
+--
+
+INSERT INTO `url` (`id`, `icon`, `title`, `controller`, `action`, `roles`) VALUES
+(1, 'home', 'Accueil', 'Index', 'index', '1,2,3'),
+(2, 'users', 'Utilisateurs', 'users', 'index', '1,3'),
+(3, 'add square', 'Ajout d''utilisateur', 'users', 'add', '1,3'),
+(4, 'edit', 'Modification d''utilisateur', 'users', 'update', '1,3');
 
 -- --------------------------------------------------------
 
@@ -176,6 +201,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `url`
+--
+ALTER TABLE `url`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
@@ -192,6 +223,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `url`
+--
+ALTER TABLE `url`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
