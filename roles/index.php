@@ -18,7 +18,9 @@
  */
 
 $dbh = new PDO('mysql:host=localhost;dbname=phalcon-td0', 'root','');
-
+ if(isset($_POST['search'])){
+     $search = $_POST['search'];
+}
 
 ?>
 
@@ -67,6 +69,10 @@ if(!isset($_GET['col'])||!isset($_GET['tri'])){
         }
     }
 
+}
+
+if(isset($_POST['search'])){
+    $stmt = $dbh->prepare('SELECT name, count(idrole), role.id FROM role JOIN user ON user.idrole = role.id where name like \''.$search.'%\'GROUP BY role.id, name ');
 }
 
 $stmt->execute();
